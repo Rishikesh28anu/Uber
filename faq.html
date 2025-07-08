@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FAQs - Sleek UI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Sora:wght@600&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      background: #101010;
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+    }
+
+    .faq-section {
+      max-width: 900px;
+      margin: 100px auto;
+      padding: 0 20px;
+    }
+
+    .faq-section h2 {
+      font-family: 'Sora', sans-serif;
+      font-size: 2.8rem;
+      text-align: center;
+      margin-bottom: 60px;
+      background: linear-gradient(45deg, #00ffff, #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .faq-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(0, 255, 255, 0.1);
+      border-radius: 16px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 0 transparent;
+    }
+
+    .faq-item:hover {
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.08);
+      border-color: rgba(0, 255, 255, 0.3);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #fff;
+      padding: 20px 60px 20px 24px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      position: relative;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .faq-question::after {
+      content: '⯆';
+      font-size: 1.2rem;
+      color: #00ffff;
+      position: absolute;
+      right: 24px;
+      top: 50%;
+      transform: translateY(-50%) rotate(0deg);
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-question::after {
+      transform: translateY(-50%) rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      color: #aefcff;
+      padding: 0 24px;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      padding: 10px 24px 24px;
+    }
+    .faq-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(0,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,255,0.015) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.faq-section {
+  position: relative;
+  z-index: 1; /* keep the FAQ content above background */
+}
+
+.floating-particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  width: 20px;               /* ⬆️ size up */
+  height: 20px;              /* ⬆️ size up */
+  background: radial-gradient(circle, rgba(0,255,255,0.6), rgba(0,255,255,0.1));
+  border-radius: 50%;
+  animation: floatUpDown 10s ease-in-out infinite alternate;
+  opacity: 0.3;              /* ⬆️ intensity */
+  filter: blur(2px);         /* ⬆️ soft glow */
+}
+
+
+.particle:nth-child(1) {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.particle:nth-child(2) {
+  top: 60%;
+  left: 30%;
+  animation-delay: 1s;
+}
+
+.particle:nth-child(3) {
+  top: 40%;
+  left: 80%;
+  animation-delay: 2s;
+}
+
+.particle:nth-child(4) {
+  top: 75%;
+  left: 50%;
+  animation-delay: 3s;
+}
+
+.particle:nth-child(5) {
+  top: 10%;
+  left: 70%;
+  animation-delay: 4s;
+}
+
+@keyframes floatUpDown {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-30px) scale(1.2);
+    opacity: 0.25;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+  </style>
+</head>
+<body>
+<div class="floating-particles">
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+</div>
+
+<section class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+    <button class="faq-question">1. What is Global Trend, and what do we do?</button>
+    <div class="faq-answer">
+      <p>We’re a digital marketing company dedicated to helping businesses grow online. From increasing visibility to driving high-quality traffic, we create customized strategies that deliver measurable, long-term results.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">2. Who do we work with?</button>
+    <div class="faq-answer">
+      <p>We partner with a wide range of businesses—from early-stage startups to growing brands. If you're looking to improve your digital presence and marketing performance, we’re here to help.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">3. How do we create strategies tailored to each client?</button>
+    <div class="faq-answer">
+      <p>We take the time to understand your business goals, audience, industry, and competitors. Based on that, we build a strategy that’s customized to your specific needs—focused, effective, and built to support real growth.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">4. Can we improve your existing marketing campaigns?</button>
+    <div class="faq-answer">
+      <p>Yes! We’ll review your current campaigns to identify what’s working and where there’s room for improvement. Then, we optimize everything—from content and targeting to budget allocation—using data and insights to drive better results.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">5. Do we offer social media management?</button>
+    <div class="faq-answer">
+      <p>We do. Our social media services include content creation, engagement strategies, and performance tracking. Whether you need full account management or just a boost in strategy, we’ve got you covered.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">6. How does our pricing work?</button>
+    <div class="faq-answer">
+      <p>We keep our pricing flexible and affordable. Whether you’re just starting out or scaling up, we offer custom packages that align with your goals and budget—so you get real value without overspending.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">7. What’s our onboarding process like?</button>
+    <div class="faq-answer">
+      <p>Our onboarding is simple, strategic, and collaborative. We start with a discovery session to understand your business inside and out. From there, we map out your goals, build a custom plan, and get to work—quickly and clearly.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  const faqs = document.querySelectorAll('.faq-item');
+
+  faqs.forEach(item => {
+    item.querySelector('.faq-question').addEventListener('click', () => {
+      item.classList.toggle('active');
+    });
+  });
+</script>
+
+</body>
+</html>

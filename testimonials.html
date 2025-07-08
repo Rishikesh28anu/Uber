@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+  background: #0a0a0a;
+  font-family: 'Poppins', sans-serif;
+}
+
+.testimonial-section {
+  text-align: center;
+  padding: 100px 20px;
+  color: white;
+  position: relative;
+  background: radial-gradient(circle at center, #0a0a0a, #111111 80%);
+}
+
+.testimonial-title {
+  font-size: 2.8rem;
+  font-family: 'Sora', sans-serif;
+  background: linear-gradient(45deg, #00ffff, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+}
+
+.testimonial-subtitle {
+  color: #ccc;
+  font-size: 1.1rem;
+  margin-bottom: 60px;
+}
+
+.testimonial-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  position: relative;
+}
+
+.testimonial-card {
+  max-width: 600px;
+  width: 100%;
+  background: rgba(0, 10, 20, 0.35);
+  border: 1px solid rgba(0, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 40px;
+  backdrop-filter: blur(12px);
+  box-shadow: inset 0 0 30px rgba(0, 255, 255, 0.02), 0 10px 25px rgba(0, 255, 255, 0.08);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.testimonial-card.active {
+  display: flex;
+}
+
+.testimonial-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 20px;
+  border: 3px solid #00ffff;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.5);
+}
+
+.testimonial-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  border-radius: inherit;
+}
+
+.quote-text {
+  font-size: 1.1rem;
+  color: #bdefff;
+  margin-bottom: 20px;
+  min-height: 80px;
+}
+
+.stars {
+  color: #ffd700;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #ffffff;
+}
+.name span {
+  display: block;
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.testimonial-nav {
+  background: none;
+  border: none;
+  color: #00ffff;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.testimonial-nav:hover {
+  transform: scale(1.2);
+}
+
+</style>
+<body>
+    <section class="testimonial-section">
+  <h2 class="testimonial-title">Testimonials</h2>
+  <p class="testimonial-subtitle">See what our happy customers say about us.</p>
+
+  <div class="testimonial-carousel">
+    <button class="testimonial-nav prev">←</button>
+
+    <!-- Testimonial 1 -->
+<div class="testimonial-card active">
+  <div class="testimonial-image">
+    <img src="in-modern-office-caucasian-young-woman-wearing-wh-2024-05-29-20-13-38-utc 1.jpg" alt="Emily R." />
+  </div>
+  <div class="testimonial-quote">
+    <p class="quote-text">
+      Their expertise transformed our online presence! The SEO strategies they implemented helped us rank on the first page of Google within 3 months. Our organic traffic increased by 120%, and leads doubled. Highly recommend their services!
+    </p>
+    <div class="stars">⭐⭐⭐⭐⭐</div>
+    <p class="name">Emily R., <span>Marketing Manager at GreenLeaf Co.</span></p>
+  </div>
+</div>
+
+<!-- Testimonial 2 -->
+<div class="testimonial-card">
+  <div class="testimonial-image">
+    <img src="portrait-happy-young-casual-man-standing 1.jpg" alt="Mark T." />
+  </div>
+  <div class="testimonial-quote">
+    <p class="quote-text">
+      The outsourced marketing solutions were a game changer for us. Their team managed our social media, email marketing, and Google Ads campaigns flawlessly, allowing us to focus on our core business. We saw a 30% boost in ROI within the first quarter!
+    </p>
+    <div class="stars">⭐⭐⭐⭐⭐</div>
+    <p class="name">Mark T., <span>CEO of TechWave Solutions</span></p>
+  </div>
+</div>
+
+<!-- Testimonial 3 -->
+<div class="testimonial-card">
+  <div class="testimonial-image">
+    <img src="happy-joyful-female-woman-with-tablet-posing-indoors.jpg" alt="Sophia L." />
+  </div>
+  <div class="testimonial-quote">
+    <p class="quote-text">
+      We approached them for a website redesign, and the results were outstanding. The new design is not only visually appealing but also optimized for conversions. Bounce rates dropped by 25%, and our inquiries increased significantly.
+    </p>
+    <div class="stars">⭐⭐⭐⭐⭐</div>
+    <p class="name">Sophia L., <span>Owner of Luxe Interiors</span></p>
+  </div>
+</div>
+
+<!-- Testimonial 4 -->
+<div class="testimonial-card">
+  <div class="testimonial-image">
+    <img src="smile-internship-and-portrait-of-business-man-in-2025-01-09-18-14-40-utc.jpg" alt="Liam J." />
+  </div>
+  <div class="testimonial-quote">
+    <p class="quote-text">
+      What stood out the most was their professionalism and commitment to our success. The weekly updates and insights kept us informed and confident in our campaigns. We’ve seen a 50% increase in qualified leads!
+    </p>
+    <div class="stars">⭐⭐⭐⭐⭐</div>
+    <p class="name">Liam J., <span>Co-founder of SolarTech Innovations</span></p>
+  </div>
+</div>
+
+<!-- Testimonial 5 -->
+<div class="testimonial-card">
+  <div class="testimonial-image">
+    <img src="taking-the-lead-for-a-great-future-2024-05-17-17-19-38-utc.jpg" alt="David P." />
+  </div>
+  <div class="testimonial-quote">
+    <p class="quote-text">
+      Their digital marketing consultancy was exactly what we needed. The tailored strategies and in-depth analytics helped us refine our campaigns and maximize our budget. The transparent reporting was a huge plus!
+    </p>
+    <div class="stars">⭐⭐⭐⭐⭐</div>
+    <p class="name">David P., <span>CMO at BrightPath Education</span></p>
+  </div>
+</div>
+
+
+    <!-- You can add more .testimonial-card below with different image and text -->
+
+    <button class="testimonial-nav next">→</button>
+  </div>
+</section>
+
+
+<script>
+ const testimonials = document.querySelectorAll('.testimonial-card');
+let currentIndex = 0;
+
+function typeText() {
+  const quoteElement = testimonials[currentIndex].querySelector('.quote-text');
+  const fullText = quoteElement.textContent;
+  quoteElement.textContent = '';
+  let charIndex = 0;
+
+  function typeChar() {
+    if (charIndex < fullText.length) {
+      quoteElement.textContent += fullText.charAt(charIndex);
+      charIndex++;
+      setTimeout(typeChar, 20);
+    }
+  }
+
+  typeChar();
+}
+
+typeText();
+
+document.querySelector('.next').addEventListener('click', () => {
+  testimonials[currentIndex].classList.remove('active');
+  currentIndex = (currentIndex + 1) % testimonials.length;
+  testimonials[currentIndex].classList.add('active');
+  typeText();
+});
+
+document.querySelector('.prev').addEventListener('click', () => {
+  testimonials[currentIndex].classList.remove('active');
+  currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+  testimonials[currentIndex].classList.add('active');
+  typeText();
+});
+
+</script>
+
+</body>
+</html>

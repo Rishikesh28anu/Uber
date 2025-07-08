@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Global Trend</title>
+    <style>
+        body{ font-family: 'Poppins', sans-serif;
+}
+h1, h2, h3, .carousel-title {
+  font-family: 'Sora', sans-serif;
+}
+
+
+    .carousel-section {
+  position: relative;
+  padding: 100px 20px;
+  background: radial-gradient(circle at center, #0a0a0a, #111111 80%);
+  color: white;
+  overflow: hidden;
+}
+
+.carousel-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image:
+    linear-gradient(rgba(0,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,255,0.015) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.carousel-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  background: linear-gradient(45deg, #00ffff, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.carousel-wrapper {
+  position: relative;
+  max-width: 50%;
+  padding: 0 40px;  /* Add this */
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  z-index: 1;
+  margin: 0 auto;
+}
+
+
+.carousel-track {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  scroll-behavior: smooth;
+}
+
+.carousel-card {
+    min-height: 400px; 
+  flex: 0 0 calc(100% - 80px);
+  background: rgba(0, 10, 20, 0.35);
+  border: 1px solid rgba(0, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 40px 30px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(12px);
+  box-shadow: inset 0 0 30px rgba(0, 255, 255, 0.02), 0 10px 25px rgba(0, 255, 255, 0.08);
+  padding: 48px 36px;
+}
+
+.carousel-card:hover {
+  transform: translateY(-6px);
+  border-color: #00d4ff;
+  box-shadow: 0 10px 30px rgba(0, 212, 255, 0.15);
+}
+
+.service-icon {
+  font-size: 40px;
+  background: linear-gradient(45deg, #00d4ff, #0099cc);
+  border-radius: 16px;
+  width: 64px;
+  height: 64px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.carousel-card h3 {
+  font-size: 1.75rem;
+  margin-bottom: 14px;
+  color: #ffffff;
+}
+
+.carousel-card p {
+   font-size: 1.25rem;
+  line-height: 2.2;
+  color: #bdefff; /* slightly brighter for bigger space */
+  margin-top: 12px;
+}
+
+.nav-btn {
+  background: linear-gradient(145deg, #00d4ff, #0099cc);
+  color: #fff;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 1.5rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.4);
+  transition: all 0.2s ease;
+  z-index: 2;
+}
+
+.nav-btn:hover {
+  box-shadow: 0 0 16px rgba(0, 255, 255, 0.6);
+  transform: scale(1.1);
+}
+.carousel-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+  text-align: left;
+}
+
+.card-content {
+  flex: 1;
+}
+
+.card-media {
+  flex-shrink: 0;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%; /* ✅ Makes it circular */
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  border: 2px solid rgba(0, 255, 255, 0.2);
+}
+
+
+.card-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: inherit;
+}
+
+.carousel-card {
+  display: flex;
+  flex-direction: column;  /* vertical stack */
+  gap: 24px;
+  text-align: left;
+}
+
+.card-bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+}
+
+.card-content {
+  flex: 1;
+}
+
+.card-media {
+  flex-shrink: 0;
+  width: 220px;
+  height: 220px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+.card-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: inherit;
+}
+
+.carousel-card {
+  flex: 0 0 calc(100% - 80px);
+  min-height: 400px;
+  background: rgba(0, 10, 20, 0.35);
+  border: 1px solid rgba(0, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 48px 36px;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(12px);
+  box-shadow: inset 0 0 30px rgba(0, 255, 255, 0.02), 0 10px 25px rgba(0, 255, 255, 0.08);
+
+  display: flex;
+  flex-direction: column;     /* 👈 Vertical stack */
+  gap: 24px;
+}
+
+.carousel-card:hover {
+  transform: translateY(-6px);
+  border-color: #00d4ff;
+  box-shadow: 0 10px 30px rgba(0, 212, 255, 0.15);
+}
+
+.card-bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+}
+
+.card-content {
+  flex: 1;
+}
+
+.card-media {
+  flex-shrink: 0;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;      /* ✅ now circular */
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  border: 2px solid rgba(0, 255, 255, 0.2);
+}
+
+.card-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: inherit;
+}
+
+
+</style>
+</head>
+<body>
+  <section class="carousel-section">
+    <h2 class="carousel-title">Our Services</h2>
+    
+    <div class="carousel-wrapper">
+      <button class="nav-btn prev-btn">←</button>
+
+      <div class="carousel-track">
+<div class="carousel-card">
+  <h3>Digital Marketing</h3>
+
+  <div class="card-bottom-row">
+    <div class="card-content">
+      <p>
+        We craft strategic campaigns across SEO, social media, and paid ads to attract high-intent users. 
+        Every channel is aligned to boost visibility, engagement, and conversions with measurable results.
+      </p>
+    </div>
+
+    <div class="card-media">
+      <video autoplay muted loop playsinline>
+        <source src="file (1).mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</div>
+
+<div class="carousel-card">
+  <h3>Website Design</h3>
+  <div class="card-bottom-row">
+    <div class="card-content">
+      <p>
+        We create elegant, responsive websites tailored to your brand. From user flows to final UI polish, 
+        every page is designed to captivate visitors and turn them into customers.
+      </p>
+    </div>
+    <div class="card-media">
+      <video autoplay muted loop playsinline>
+        <source src="file (2).mp4" type="video/mp4" />
+      </video>
+    </div>
+  </div>
+</div>
+
+<div class="carousel-card">
+  <h3>SEO Optimization</h3>
+  <div class="card-bottom-row">
+    <div class="card-content">
+      <p>
+        Our SEO team improves your Google visibility using ethical, long-term strategies. 
+        We optimize technical health, content quality, and link signals to improve your rankings sustainably.
+      </p>
+    </div>
+    <div class="card-media">
+      <video autoplay muted loop playsinline>
+        <source src="file (3).mp4" type="video/mp4" />
+      </video>
+    </div>
+  </div>
+</div>
+
+<div class="carousel-card">
+  <h3>Consultancy</h3>
+  <div class="card-bottom-row">
+    <div class="card-content">
+      <p>
+        We offer personalized digital strategy sessions to align your brand with scalable growth. 
+        Whether it's campaign advice or platform selection, we guide with data and experience.
+      </p>
+    </div>
+    <div class="card-media">
+      <video autoplay muted loop playsinline>
+        <source src="file (4).mp4" type="video/mp4" />
+      </video>
+    </div>
+  </div>
+</div>
+
+<div class="carousel-card">
+  <h3>Copywriting</h3>
+  <div class="card-bottom-row">
+    <div class="card-content">
+      <p>
+        Every word matters. We write persuasive headlines, clean product descriptions, and SEO-friendly blogs 
+        that reflect your brand voice and drive conversions.
+      </p>
+    </div>
+    <div class="card-media">
+      <video autoplay muted loop playsinline>
+        <source src="file (5).mp4" type="video/mp4" />
+      </video>
+    </div>
+  </div>
+</div>
+
+<div class="carousel-card">
+  <h3>Google Ads</h3>
+  <div class="card-bottom-row">
+    <div class="card-content">
+      <p>
+        We manage high-converting ad campaigns across Google’s network. 
+        From audience targeting to creative testing, we focus on ROI and real-time optimization.
+      </p>
+    </div>
+    <div class="card-media">
+      <video autoplay muted loop playsinline>
+        <source src="file (6).mp4" type="video/mp4" />
+      </video>
+    </div>
+  </div>
+</div>
+</div>
+      <button class="nav-btn next-btn">→</button>
+    </div>
+  </section>
+
+
+
+
+
+<script>
+  const track = document.querySelector(".carousel-track");
+  const prevBtn = document.querySelector(".prev-btn");
+  const nextBtn = document.querySelector(".next-btn");
+
+  let currentIndex = 0;
+  const totalCards = document.querySelectorAll(".carousel-card").length;
+
+  function updateCarousel(index) {
+  const cardWidth = document.querySelector(".carousel-card").clientWidth;
+  track.scrollTo({
+    left: cardWidth * index,
+    behavior: "smooth"
+  });
+}
+
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % totalCards;
+    updateCarousel(currentIndex);
+  });
+
+  prevBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+    updateCarousel(currentIndex);
+  });
+</script>
+
+</body>
+</html>

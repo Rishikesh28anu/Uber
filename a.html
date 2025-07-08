@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Global Trend - Hero Redesign</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* Ambient Background Elements */
+    .bg-grid {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.05;
+      background-image: 
+        linear-gradient(rgba(0, 212, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 212, 255, 0.1) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .floating-elements {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .floating-circle {
+      position: absolute;
+      border-radius: 50%;
+      background: linear-gradient(45deg, rgba(0, 212, 255, 0.1), rgba(0, 153, 204, 0.1));
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .floating-circle:nth-child(1) {
+      width: 100px;
+      height: 100px;
+      top: 20%;
+      right: 10%;
+    }
+
+    .floating-circle:nth-child(2) {
+      width: 60px;
+      height: 60px;
+      top: 60%;
+      left: 5%;
+      animation-delay: 2s;
+    }
+
+    .floating-circle:nth-child(3) {
+      width: 80px;
+      height: 80px;
+      top: 80%;
+      right: 20%;
+      animation-delay: 4s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 10;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #00d4ff, #0099cc);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav a:hover, .nav a.active {
+      color: #00d4ff;
+    }
+
+    /* Hero Layout */
+    .hero-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 60px;
+      gap: 60px;
+    }
+
+   .video-curve {
+  position: relative;
+  width: 680px;
+  height: 580px;
+  border-top-right-radius: 290px;
+  border-bottom-right-radius: 290px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 80px rgba(0, 212, 255, 0.15);
+  background: 
+    radial-gradient(circle at 60% 40%, rgba(0,212,255,0.05), transparent 70%),
+    linear-gradient(135deg, #0a0a0a, #1a1a1a);
+    padding-top: -500px;
+}
+
+.video-curve video {
+  width: 100%;
+  height: 100%;
+  object-fit:fill;
+  border-radius: inherit;
+  filter: blur(0.3px);
+  transform: scale(1);
+  opacity: 0.6;
+   transform-origin: center;
+}
+
+
+
+    .hero-text {
+      max-width: 600px;
+    }
+
+    .hero-text h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 30px;
+    }
+
+    .highlight {
+      background: linear-gradient(45deg, #00d4ff, #0099cc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #ccc;
+      margin-bottom: 40px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 14px 28px;
+      background: linear-gradient(45deg, #00d4ff, #0099cc);
+      color: white;
+      font-weight: 600;
+      border-radius: 40px;
+      text-decoration: none;
+      transition: 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 212, 255, 0.3);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 212, 255, 0.5);
+    }
+
+    @media (max-width: 900px) {
+      .header {
+        padding: 15px 20px;
+      }
+
+      .nav {
+        display: none;
+      }
+
+      .hero-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+      }
+
+     .video-curve {
+  width: 360px;  /* was 300px */
+  height: 360px;
+  border-radius: 20px 180px 180px 20px;
+}
+
+
+      .hero-text h1 {
+        font-size: 2.2rem;
+      }
+    }
+
+    .service-card {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  padding: 32px 26px;
+  text-align: left;
+  transition: 0.35s ease;
+  box-shadow: 0 0 0 transparent;
+  backdrop-filter: blur(8px);
+  color: #d0d0d0;
+  max-height: 520px;
+  overflow-y: auto;
+  position: relative;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: #00d4ff;
+  box-shadow: 0 10px 30px rgba(0, 212, 255, 0.12);
+}
+
+.service-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  background: radial-gradient(circle at 30% 30%, rgba(0, 212, 255, 0.04), transparent 60%);
+  z-index: 0;
+}
+
+.service-card h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #ffffff;
+  position: relative;
+  z-index: 1;
+}
+
+.service-card p {
+  font-size: 0.96rem;
+  color: #bbbbbb;
+  line-height: 1.6;
+  text-align: justify;
+  position: relative;
+  z-index: 1;
+}
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Background -->
+  <div class="bg-grid"></div>
+  <div class="floating-elements">
+    <div class="floating-circle"></div>
+    <div class="floating-circle"></div>
+    <div class="floating-circle"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <div class="logo-icon">🌍</div>
+      <span>Global <span class="highlight">Trend</span></span>
+    </div>
+    <nav class="nav">
+      <a href="#" class="active">Home</a>
+      <a href="#">Our Services</a>
+      <a href="#">Testimonials</a>
+      <a href="#">Our Blogs</a>
+      <a href="#">Contact Us</a>
+      <a href="#">About Us</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+  <div class="hero-text">
+    <h1>
+      <span class="highlight">Skyrocket</span> Your Brand<br>
+      with <span class="highlight">Proven Tactics</span>
+    </h1>
+    <p>
+      Boost your brand with data-driven marketing strategies that actually deliver measurable results.
+    </p>
+    <a href="#" class="cta-button">Let’s Talk →</a>
+  </div>
+
+  <div class="video-curve">
+    <video autoplay muted loop playsinline>
+      <source src="file.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</section>
+
+<section class="services-section">
+  <h2 class="section-title">Our Services</h2>
+  <div class="services-grid">
+
+    <!-- 1. Digital Marketing Services -->
+    <div class="service-card">
+      <h3>Digital Marketing Services</h3>
+      <p>
+        We specialise in helping small businesses grow through strategic, results-driven outsource marketing solutions.
+        You can rely on our experienced SEO professionals to manage every aspect of your online presence—from technical SEO and content strategy to social media campaigns and PPC advertising.
+        With a proven track record of delivering measurable growth for small business clients, we offer flexible, cost-effective packages tailored to your goals.
+        Outsource your marketing to a team you can trust, and let us focus on bringing you traffic, leads, and long-term success—while you focus on running your business.
+      </p>
+    </div>
+
+    <!-- 2. Creative Website Design -->
+    <div class="service-card">
+      <h3>Creative Website Design</h3>
+      <p>
+        We design visually striking, user-friendly websites that not only look great but are built to perform.
+        Our creative website design services are tailored for businesses that want to stand out online, engage their audience, and drive conversions.
+        Every website we create is fully responsive, SEO-optimised, and designed with your brand identity and business goals in mind.
+        Whether you’re starting from scratch or refreshing your existing site, our expert designers and developers collaborate with you to deliver a high-performing website that supports long-term growth and leaves a lasting impression.
+      </p>
+    </div>
+
+    <!-- 3. Search Engine Optimization -->
+    <div class="service-card">
+      <h3>Search Engine Optimization</h3>
+      <p>
+        We deliver strategic Search Engine Optimization (SEO) services designed to help small businesses rank higher, attract the right audience, and grow sustainably online.
+        Our team of SEO specialists uses ethical, data-driven techniques—ranging from technical audits and on-page optimisation to high-quality link building and local SEO—to improve your visibility on the major search engines.
+        We don’t believe in one-size-fits-all; instead, we craft tailored SEO strategies aligned with your industry, competition, and business goals.
+        With transparent reporting and measurable results, we ensure your business is found by the people who matter most—your future customers.
+      </p>
+    </div>
+
+    <!-- 4. Digital Marketing Consultancy -->
+    <div class="service-card">
+      <h3>Digital Marketing Consultancy</h3>
+      <p>
+        Our Digital Marketing Consultancy service is designed to empower businesses with expert guidance, clear strategy, and real results.
+        Whether you're launching a new brand or looking to improve existing campaigns, our consultants bring years of industry experience across SEO, PPC, content marketing, social media, and more.
+        We take the time to understand your business, analyse your current digital performance, and build a tailored roadmap to help you achieve sustainable growth.
+        With honest advice, strategic planning, and data-led insights, we act as your trusted partner—helping you make smarter marketing decisions that drive success.
+      </p>
+    </div>
+
+    <!-- 5. Copywriting -->
+    <div class="service-card">
+      <h3>Copywriting</h3>
+      <p>
+        Our professional copywriting services are crafted to give small businesses a powerful voice online.
+        Whether you need compelling website content, persuasive product descriptions, engaging blog posts, or optimised landing pages, our expert copywriters create content that speaks directly to your audience and drives action.
+        Every word is written with SEO best practices in mind—helping your business rank higher on search engines while building trust and credibility with your visitors.
+        Clear, consistent, and conversion-focused, our copy doesn’t just fill space—it builds your brand and boosts your bottom line.
+      </p>
+    </div>
+
+    <!-- 6. Google Ads -->
+    <div class="service-card">
+      <h3>Google Ads</h3>
+      <p>
+        We create and manage high-converting Google and Bing Ads campaigns that help businesses generate quality leads and maximise ROI.
+        Our certified PPC specialists craft tailored advertising strategies that put your brand in front of the right audience at the right time—whether it's through Search, Display, or Shopping ads.
+        From keyword research and ad copywriting to bid optimisation and performance tracking, we handle every aspect of your campaign with precision and transparency.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+  <script>
+  // Enhance floating animation with randomized delays and durations
+  const floatingElements = document.querySelectorAll('.floating-circle');
+
+  floatingElements.forEach((element, index) => {
+    const randomDelay = Math.random() * 2000;
+    const randomDuration = 4000 + Math.random() * 4000;
+
+    setTimeout(() => {
+      element.style.animation = `float ${randomDuration}ms ease-in-out infinite`;
+    }, randomDelay);
+  });
+</script>
+
+</body>
+</html>
